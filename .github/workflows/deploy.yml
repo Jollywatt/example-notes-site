@@ -12,8 +12,8 @@ jobs:
       - name: Build notes site
         uses: Jollywatt/notes-deploy-action@main
         with:
-          source_directory: "."
-          build_directory: "site"
+          source_directory: "$GITHUB_WORKSPACE/."
+          build_directory: "$GITHUB_WORKSPACE/site"
 
       - name: Upload static site artifact
         uses: actions/upload-pages-artifact@v3
