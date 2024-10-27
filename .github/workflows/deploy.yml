@@ -2,7 +2,7 @@ name: "Deploy static notes site"
 on: [push]
 
 jobs:
-  rename_files_job:
+  deploy_site:
     runs-on: ubuntu-latest
 
     steps:
