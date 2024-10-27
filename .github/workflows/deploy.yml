@@ -1,6 +1,10 @@
 name: "Deploy static notes site"
 on: [push]
 
+permissions:
+  id-token: write
+  pages: write
+
 jobs:
   deploy_site:
     runs-on: ubuntu-latest
