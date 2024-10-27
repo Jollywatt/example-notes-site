@@ -1,0 +1,25 @@
+name: "Deploy static notes site"
+on: [push]
+
+jobs:
+  rename_files_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Julia Rename Action
+        uses: Jollywatt/notes-deploy-action@main
+        with:
+          source_directory: "."
+          build_directory: "site"
+
+      - name: Upload static site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
